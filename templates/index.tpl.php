@@ -7,10 +7,12 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./styles/styles.css" />
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 
   <header class="main-header">
     <div class="jumbotron text-center text-white align-middle<?= $find['file'] === 'home' ? ' header-background' : '' ?>" style="margin-bottom:0">
@@ -44,7 +46,7 @@
     </div>
   </main>
 
-  <footer class="footer py-3 bg-dark">
+  <footer class="footer mt-auto py-3">
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-6">

@@ -24,9 +24,9 @@ $pages = [
     'file' => 'prices',
     'text' => 'Prices',
   ],
-  'offer' => [
-    'file' => 'offer',
-    'text' => 'Offer',
+  'gallery' => [
+    'file' => 'gallery',
+    'text' => 'Gallery',
   ],
   'appointment' => [
     'file' => 'appointment',
