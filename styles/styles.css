@@ -1,0 +1,12 @@
+.main-header {
+    background: url(../images/cat.jpg) center center no-repeat;
+    background-size: cover;
+  }
+  
+  .main-header .jumbotron {
+    background-color: transparent;
+  }
+  
+  .main-header .header-background {
+    min-height: 70vh;
+  }
