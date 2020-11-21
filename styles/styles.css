@@ -12,7 +12,15 @@
 }
 
 nav {
-  background-color: rgba(125,125,125,0.4);
+  background-color: rgba(125,125,125,0.6);
+}
+
+.paw {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.active .nav-link .paw {
+  color: rgba(255, 153, 153, 1);
 }
 
 main.container {
@@ -22,4 +30,27 @@ main.container {
 
 .footer {
   background-color: #050708;
+}
+
+.card {
+  max-width: 960 px;
+}
+
+iframe {
+  margin: 20px;
+  display: block;
+  max-width: 560px;
+  max-height: 315px;
+}
+
+img {
+  display: block;
+  width: 500px;
+}
+
+@media(max-width: 768px) {
+  img {
+    display: block;
+    max-width: 350px;
+  }
 }

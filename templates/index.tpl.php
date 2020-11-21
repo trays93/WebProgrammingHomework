@@ -16,7 +16,7 @@
 
   <header class="main-header">
     <div class="jumbotron text-center text-white align-middle<?= $find['file'] === 'home' ? ' header-background' : '' ?>" style="margin-bottom:0">
-      <h1><img src="./images/catsitter_logo.png" alt="logo"></h1>
+      <img class="mx-auto my-auto" src="./images/catsitter_logo.png" alt="logo">
     </div>
 
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -29,7 +29,7 @@
           <?php foreach($pages as $url => $page) : ?>
             <li class="nav-item<?= $page === $find ? ' active' : '' ?>">
               <a class="nav-link" href="<?= "?page={$url}" ?>">
-                <?= $page['text'] ?>
+                <i class="fas fa-paw paw"></i> <?= $page['text'] ?>
               </a>
             </li>
           <?php endforeach; ?>
