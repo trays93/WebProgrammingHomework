@@ -1,6 +1,25 @@
 <?php
 
-// ToDo: file upload save
+$message = '';
+
+if (isset($_POST['submit'])) {
+  foreach ($_FILES as $uploadedFile) {
+    if (!in_array($uploadedFile['type'], $fileUploadConfig['types'])) {
+      $message = "The file type is incorrect: {$uploadedFile['name']}";
+    } else if ($uploadedFile['error'] == 1
+              || $uploadedFile['error'] == 2
+              || $uploadedFile['size'] > $fileUploadConfig['maxsize']) {
+      $message = "The file uploaded file size is exceeds the upload limit: {$uploadedFile['name']}";
+    } else {
+      $targetPath = $fileUploadConfig['path'] . strtolower($uploadedFile['name']);
+      if (file_exists($targetPath)) {
+        $message ="The file is already exists: {$uploadedFile['name']}";
+      } else {
+        move_uploaded_file($uploadedFile['tmp_name'], $targetPath);
+      }
+    }
+  }
+}
 
 $images = [];
 $reader = opendir($fileUploadConfig['path']);
@@ -27,6 +46,11 @@ arsort($images);
           <h2>Upload new image:</h2>
         </div>
         <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post" enctype="multipart/form-data">
+          <?php if (!empty($message)) : ?>
+            <div class="alert alert-danger" role="alert">
+              <?= $message ?>
+            </div>
+          <?php endif; ?>
           <div class="card-body">
             <div class="form-group">
               <label for="file">Picture to upload:</label>
@@ -34,7 +58,7 @@ arsort($images);
             </div>
           </div>
           <div class="card-footer">
-            <input class="btn btn-primary" type="submit" />
+            <input class="btn btn-primary" type="submit" name="submit" />
           </div>
         </form>
       </div>
@@ -42,23 +66,26 @@ arsort($images);
   </div>
 
   <div class="row">
-    <?php foreach($images as $file => $date) : ?>
-    <div class="col-4">
-      <div class="card">
-        <a href="<?= $fileUploadConfig['path'] . $file ?>" target="_blank">
-            <img class="card-img-top" src="<?= $fileUploadConfig['path'] . $file ?>" alt="<?= $fileUploadConfig['path'] . $file ?>" />
-          </a>
-        <div class="card-body">
-        <h5 class="card-title"><?= $file ?></h5>
-        <p class="card-text"><small class="text-muted">Uploaded: <?= date($fileUploadConfig['dateformat'], $date) ?></small></p>
+    <?php if (empty($images)) : ?>
+      <div class="col-12">
+        <div class="alert alert-primary" role="alert">
+          Currently there are no uploaded pictures!
         </div>
       </div>
-    </div>
-    <?php endforeach; ?>
+    <?php else : ?>
+      <?php foreach($images as $file => $date) : ?>
+      <div class="col-4">
+        <div class="card">
+          <a href="<?= $fileUploadConfig['path'] . $file ?>" target="_blank">
+              <img class="card-img-top" src="<?= $fileUploadConfig['path'] . $file ?>" alt="<?= $fileUploadConfig['path'] . $file ?>" />
+            </a>
+          <div class="card-body">
+          <h5 class="card-title"><?= $file ?></h5>
+          <p class="card-text"><small class="text-muted">Uploaded: <?= date($fileUploadConfig['dateformat'], $date) ?></small></p>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </div>
-</div>
-
-<div class="col-12">
-  <code><pre><?= var_dump($_POST) ?></pre></code>
-  <code><pre><?= var_dump($_FILES) ?></pre></code>
 </div>
