@@ -15,22 +15,32 @@ $pages = [
   'home' => [
     'file' => 'home',
     'text' => 'Home',
+    'visibleInMenu' => true,
   ],
   'contact' => [
     'file' => 'contact',
     'text' => 'Contact',
+    'visibleInMenu' => true,
   ],
   'prices' => [
     'file' => 'prices',
     'text' => 'Prices',
+    'visibleInMenu' => true,
   ],
   'gallery' => [
     'file' => 'gallery',
     'text' => 'Gallery',
+    'visibleInMenu' => true,
   ],
   'appointment' => [
     'file' => 'appointment',
     'text' => 'Appointment',
+    'visibleInMenu' => true,
+  ],
+  'appointmentDetails' => [
+    'file' => 'appointmentDetails',
+    'text' => 'Appointment Details',
+    'visibleInMenu' => false,
   ],
 ];
 

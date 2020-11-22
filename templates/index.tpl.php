@@ -27,11 +27,13 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <?php foreach($pages as $url => $page) : ?>
+            <?php if ($page['visibleInMenu']) : ?>
             <li class="nav-item<?= $page === $find ? ' active' : '' ?>">
               <a class="nav-link" href="<?= "?page={$url}" ?>">
                 <i class="fas fa-paw paw"></i> <?= $page['text'] ?>
               </a>
             </li>
+            <?php endif; ?>
           <?php endforeach; ?>
         </ul>
       </div>

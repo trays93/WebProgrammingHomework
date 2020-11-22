@@ -14,7 +14,7 @@ if (isset($_POST['name'])) {
       <h2>Make an appointment</h2>
       <p class="lead">Please enter your contact information so I can send you a message</p>
     </div>
-    <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post">
+    <form action="./?page=appointmentDetails" method="post">
       <div class="card-body">
         
         <div class="form-group">
