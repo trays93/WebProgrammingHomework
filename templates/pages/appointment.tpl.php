@@ -4,6 +4,8 @@ $showForm = true;
 if (isset($_POST['name'])) {
   $showForm = false;
 }
+
+// ToDo: check form validation
 ?>
 <div class="col-12">
   <div class="card mx-auto">

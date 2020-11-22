@@ -38,3 +38,13 @@ $errorPage = [
   'file' => '404',
   'text' => 'Page not found!',
 ];
+
+$fileUploadConfig = [
+  'path' => './upload/',
+  'types' => [
+    'image/jpeg',
+    'image/png',
+  ],
+  'dateformat' => 'm/d/Y H:i',
+  'maxsize' => 500 * 1024,
+];
