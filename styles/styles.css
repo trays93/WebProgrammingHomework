@@ -36,13 +36,6 @@ main.container {
   max-width: 960 px;
 }
 
-iframe {
-  margin: 20px;
-  display: block;
-  max-width: 560px;
-  max-height: 315px;
-}
-
 img {
   display: block;
   width: 500px;
