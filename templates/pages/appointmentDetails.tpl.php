@@ -1,13 +1,9 @@
-<?php
-if (!isset($_POST['name'])) {
-  
-}
-?>
+
 <div class="col-12">
   <div class="card">
-  <?php if (!isset($_POST['name'])) : ?>
+  <?php if (isset($_POST['name'])) : ?>
     <div class="card-header">
-      <h2>Your data</h2>
+      <h2>Thank you!</h2>
     </div>
     <div class="card-body">
       <dl class="row">
